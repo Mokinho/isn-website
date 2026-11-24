@@ -1,6 +1,6 @@
 # ISN.gov.my revamp – concept build
 
-Static HTML/CSS/JS build of the proposed revamp of [isn.gov.my](https://isn.gov.my) (Institut Sukan Negara Malaysia), prepared by **Sterrific Sdn Bhd** as a **pitch concept**.
+Static HTML/CSS/JS build of the proposed revamp of [isn.gov.my](https://isn.gov.my) (Institut Sukan Negara Malaysia), prepared by **Faiq** as a **pitch concept**.
 
 > This is not the official ISN website. Every page carries a "Concept for pitch" banner, `<meta name="robots" content="noindex, nofollow">` and `robots.txt` blocks all crawlers. Keep the repository **private** until ISN approves the project.
 
