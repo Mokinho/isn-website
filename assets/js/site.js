@@ -38,3 +38,23 @@
   document.querySelectorAll('[data-menu-close]').forEach(function (b) { b.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu && !menu.hidden) setMenu(false); });
 })();
+// v2: scroll reveals, glance timeline and floating booking button
+(function () {
+  var root = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  root.classList.add('io');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-l').forEach(function (el) { io.observe(el); });
+  var tlo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); tlo.unobserve(e.target); } });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.tl').forEach(function (el) { tlo.observe(el); });
+  var fab = document.querySelector('.fab');
+  if (fab) {
+    root.classList.add('js-fab');
+    var onScroll = function () { fab.classList.toggle('show', window.scrollY > window.innerHeight * 0.6); };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  }
+})();
