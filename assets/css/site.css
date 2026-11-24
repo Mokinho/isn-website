@@ -150,3 +150,8 @@ main{padding-top:28px}
  .topbar{left:10px;right:10px;top:10px}
  .topbar span[style*="Archivo"]{display:none}
 }
+
+/* hero call icon */
+.callbtn{transition:background .2s ease,border-color .2s ease}
+.callbtn:hover,.callbtn:focus-visible{background:#FACE47 !important;border-color:#FACE47 !important}
+.callbtn:hover svg,.callbtn:focus-visible svg{stroke:#050B2D}
