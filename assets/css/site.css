@@ -155,3 +155,110 @@ main{padding-top:28px}
 .callbtn{transition:background .2s ease,border-color .2s ease}
 .callbtn:hover,.callbtn:focus-visible{background:#FACE47 !important;border-color:#FACE47 !important}
 .callbtn:hover svg,.callbtn:focus-visible svg{stroke:#050B2D}
+
+/* ===== v2: aligned layout, motion and mobile polish ===== */
+/* One content width for every band: header, hero, panels and carousels line up with the footer */
+.topbar{max-width:1280px;margin:0 auto;box-sizing:border-box}
+section[style^="padding: 16px 16px 0"]{max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:content-box}
+.plat-wrap,div:has(> .marq){width:100%;max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+div:has(> .marq){overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+h1{font-size:clamp(44px,5.2vw,76px)!important}
+/* Hero CTA row: compact buttons so Book, Explore and Call share one row inside the aligned container */
+.rise.d3:has(> span > .callbtn){gap:8px!important}
+.rise.d3:has(.callbtn) > span{gap:8px!important}
+.rise.d3:has(.callbtn) a[style*="min-height: 48px"]{min-height:46px!important;padding:4px 4px 4px 18px!important;gap:8px!important;font-size:15px!important}
+.rise.d3:has(.callbtn) a[style*="min-height: 48px"] > span{width:36px!important;height:36px!important}
+.callbtn{width:46px!important;height:46px!important}
+[style*="padding: 132px 40px 44px"]{padding-left:32px!important;padding-right:32px!important}
+/* Scroll reveal driven by IntersectionObserver: crisp, plays once, works on every browser */
+.io .reveal,.io .reveal-l{animation:none!important;opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.io .reveal-l{transform:translateX(-28px)}
+.io .reveal.in,.io .reveal-l.in{opacity:1;transform:none}
+/* ISN at a glance: timeline that draws once, then each milestone pops in */
+.tl-fill{animation:none!important;transform:scaleX(0);transform-origin:left center;transition:transform 2s cubic-bezier(.65,0,.35,1)}
+.tl-item{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
+.tl-dot{transform:scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.tl.in .tl-fill{transform:none}
+.tl.in .tl-item{opacity:1;transform:none}
+.tl.in .tl-dot{transform:none}
+.tl.in .tl-item:nth-child(1),.tl.in .tl-item:nth-child(1) .tl-dot{transition-delay:.05s}
+.tl.in .tl-item:nth-child(2),.tl.in .tl-item:nth-child(2) .tl-dot{transition-delay:.45s}
+.tl.in .tl-item:nth-child(3),.tl.in .tl-item:nth-child(3) .tl-dot{transition-delay:.85s}
+.tl.in .tl-item:nth-child(4),.tl.in .tl-item:nth-child(4) .tl-dot{transition-delay:1.25s}
+.tl.in .tl-item:nth-child(5),.tl.in .tl-item:nth-child(5) .tl-dot{transition-delay:1.65s}
+/* Footer social icons */
+.soc{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;justify-content:center;color:#FFFFFF;text-decoration:none;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.soc:hover,.soc:focus-visible{background:#FACE47;border-color:#FACE47;color:#050B2D;transform:translateY(-2px)}
+/* Floating booking button: compact pill on desktop, round icon on mobile, appears after the hero */
+.fab{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 20px 0 16px;border-radius:999px;background:#FACE47;color:#050B2D!important;font:800 14px Raleway,system-ui,sans-serif;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.4);transition:opacity .3s ease,transform .3s ease,box-shadow .2s ease}
+.fab:hover{box-shadow:0 12px 30px rgba(250,206,71,.35);transform:translateY(-2px)}
+.js-fab .fab{opacity:0;transform:translateY(16px);pointer-events:none}
+.js-fab .fab.show{opacity:1;transform:none;pointer-events:auto}
+[style*="width: 100%; padding: 8px 8px 8px 22px"]{box-sizing:border-box}
+/* Rakan rasmi */
+.ptn img{max-width:180px;object-fit:contain}
+@media (max-width:1180px){
+ h1{font-size:clamp(44px,7vw,72px)!important}
+}
+@media (max-width:1080px){
+ .rise.d1[style*="flex: 4 1 560px"]{min-height:0!important;height:clamp(300px,56vw,460px)}
+}
+@media (max-width:980px){
+ .filltext{font-size:30px!important}
+ section[style*="padding: 96px 0"]{padding-top:72px!important;padding-bottom:72px!important}
+ section[style*="padding: 112px 0 96px 0"]{padding-top:80px!important;padding-bottom:72px!important}
+ .plat{min-width:0;height:96px;padding:0 26px}
+ .plat img{height:56px}
+ .plat .c{left:26px;top:20px;width:calc(100% - 52px);height:56px}
+ .ptrack{gap:56px;padding-right:56px}
+ .ptn img{height:48px;max-width:150px}
+ section[style^="padding: 40px 0 72px"]{padding-bottom:24px!important}
+ footer [style*="padding: 88px 40px 28px"]{padding-top:56px!important}
+ /* glance becomes a vertical timeline */
+ .tl-track,.tl-fill{top:4px!important;bottom:4px;left:8px!important;right:auto!important;width:2px!important;height:auto!important}
+ .tl-fill{transform:scaleY(0);transform-origin:center top}
+ .tl.in .tl-fill{transform:none}
+ .tl-items{flex-direction:column;gap:22px!important}
+ .tl-item{flex:none!important;padding:0 0 0 38px!important;gap:6px!important}
+ .tl-item strong{font-size:34px!important}
+ .tl-dot{top:4px!important}
+}
+@media (max-width:640px){
+ [style*="padding: 124px 48px 44px"],[style*="padding: 132px 48px 44px"],[style*="padding: 132px 40px 44px"]{padding:104px 22px 28px!important}
+ h1{font-size:clamp(34px,10vw,44px)!important}
+ footer h2{font-size:15px!important}
+ .rise.d1[style*="flex: 4 1 560px"]{height:clamp(260px,78vw,340px);border-radius:22px!important}
+ .hero-media{height:clamp(300px,86vw,380px)!important}
+ .hero-media .slide span[style*="bottom: 26px"]{left:14px!important;bottom:14px!important;font-size:12px!important}
+ .hero-media [aria-label="Slideshow progress"]{top:14px;right:14px!important;bottom:auto!important;gap:6px!important}
+ .sdot{width:22px}
+ .filltext{font-size:23px!important;line-height:1.38!important}
+ section[style*="padding: 96px 0"]{padding-top:56px!important;padding-bottom:56px!important}
+ section[style*="padding: 112px 0 96px 0"]{padding-top:64px!important;padding-bottom:56px!important}
+ section[style*="padding: 64px 0"]{padding-top:48px!important;padding-bottom:48px!important}
+ section[style^="padding: 72px 0 40px"]{padding-top:56px!important;padding-bottom:24px!important;gap:20px!important}
+ section[style^="padding: 40px 0 72px"]{padding-bottom:48px!important;gap:24px!important}
+ .zoom[style*="height: 400px"],.zoom[style*="height: 420px"],.zoom[style*="height: 440px"],.zoom[style*="height: 460px"]{height:250px!important}
+ [style*="min-height: 480px; border-radius: 28px"]{min-height:420px!important}
+ [style*="flex: 1 1 340px; min-height: 300px"],[style*="flex: 1.4 1 520px; min-height: 380px"]{min-height:220px!important}
+ [style*="flex: 1 1 380px; padding: 40px"]{padding:24px!important}
+ [style*="min-height: 440px"]{min-height:0!important}
+ .zoom[style*="height: 190px"]{height:170px!important}
+ .plat-track{gap:4px}
+ .plat{height:64px;padding:0 16px}
+ .plat img{height:34px}
+ .plat .c{left:16px;top:15px;width:calc(100% - 32px);height:34px}
+ .ptrack{gap:36px;padding-right:36px}
+ .ptn img{height:34px;max-width:110px}
+ h3[style*="font-size: 48px"],h3[style*="font-size: 52px"]{font-size:34px!important}
+ h3[style*="font-size: 70px"]{font-size:44px!important}
+ footer [style*="padding: 88px 40px 28px"]{padding:48px 20px 96px!important;gap:36px!important}
+ footer [style*="minmax(170px, 1fr)"]{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;padding-top:32px!important}
+ footer [style*="minmax(170px, 1fr)"] > div:first-child{grid-column:1 / -1}
+ footer [style*="align-self: center; background: #DDE3EF"]{align-self:stretch!important;padding:22px!important}
+ section[style^="padding: 40px 0 72px"]{padding-bottom:16px!important}
+ .fab{width:56px;height:56px;padding:0;justify-content:center;left:auto!important;right:16px!important;bottom:16px!important}
+ .fab svg{width:22px;height:22px}
+ .fab-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+@media (prefers-reduced-motion: reduce){.io .reveal,.io .reveal-l,.tl-item,.tl-dot,.tl-fill{opacity:1!important;transform:none!important;transition:none!important}}
