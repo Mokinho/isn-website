@@ -227,6 +227,9 @@ h1{font-size:clamp(44px,5.2vw,76px)!important}
  [style*="padding: 124px 48px 44px"],[style*="padding: 132px 48px 44px"],[style*="padding: 132px 40px 44px"]{padding:104px 22px 28px!important}
  h1{font-size:clamp(34px,10vw,44px)!important}
  footer h2{font-size:15px!important}
+ main [style*="grid-template-columns: repeat(auto-fit, minmax("]{grid-template-columns:minmax(0,1fr)!important}
+ main blockquote{font-size:24px!important;overflow-wrap:break-word}
+ main div.reveal[style*="padding: 48px"]{padding:26px!important}
  .rise.d1[style*="flex: 4 1 560px"]{height:clamp(260px,78vw,340px);border-radius:22px!important}
  .hero-media{height:clamp(300px,86vw,380px)!important}
  .hero-media .slide span[style*="bottom: 26px"]{left:14px!important;bottom:14px!important;font-size:12px!important}
