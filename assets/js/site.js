@@ -58,3 +58,15 @@
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   }
 })();
+// Palette preview switcher (appears only after a ?theme= link is opened in this tab)
+(function () {
+  var on; try { on = sessionStorage.getItem('isn-pal'); } catch (e) {}
+  if (!on) return;
+  var cur = document.documentElement.getAttribute('data-theme') || 'original';
+  var names = [['original', 'Original'], ['ivory', 'Navy & Ivory'], ['charcoal', 'Charcoal & Gold'], ['white', 'Sport White']];
+  var d = document.createElement('div'); d.className = 'pal'; d.setAttribute('aria-label', 'Colour palette preview');
+  d.innerHTML = '<span>Palette</span>' + names.map(function (n) {
+    return '<a href="?theme=' + n[0] + '"' + (cur === n[0] ? ' aria-current="true"' : '') + '>' + n[1] + '</a>';
+  }).join('');
+  document.body.appendChild(d);
+})();
